@@ -455,7 +455,6 @@ button:focus-visible {
 
 .service-card {
   display: block;
-  aspect-ratio: 1 / 1;
 }
 
 .service-card__media {
@@ -723,8 +722,9 @@ button:focus-visible {
 }
 
 /* -----------------------------------------------------------
-   12. Fashion page — masonry showcase
+   12. Fashion page — static masonry gallery
    ----------------------------------------------------------- */
+
 .fashion-hero {
   padding: 72px var(--gutter-desktop) 70px;
   max-width: var(--container-max);
@@ -769,6 +769,7 @@ button:focus-visible {
 .masonry {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: start;
   column-gap: 70px;
   padding: 0 var(--gutter-desktop) 90px;
   max-width: var(--container-max);
@@ -823,7 +824,7 @@ button:focus-visible {
 }
 
 .fashion-credit {
-  padding: 0 var(--gutter-desktop) 90px;
+  padding: 56px var(--gutter-desktop) 90px;
   font-size: 14px;
   line-height: 1.6;
   color: var(--color-text-soft);
@@ -833,5 +834,5 @@ button:focus-visible {
 }
 
 @media (max-width: 600px) {
-  .fashion-credit { padding: 0 var(--gutter-mobile) 56px; }
+  .fashion-credit { padding: 40px var(--gutter-mobile) 56px; }
 }
