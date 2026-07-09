@@ -33,42 +33,68 @@
     </div>
   </section>
 
-  <section class="masonry">
-    <div class="masonry__col masonry__col--left">
-      <figure class="masonry__item">
-        <img src="images/fashion-1.jpg" alt="Девушка на лошади в горах. Khanshaiym" loading="eager">
-      </figure>
-      <figure class="masonry__item">
-        <img src="images/fashion-2.jpg" alt="Портрет девушки в меховой накидке" loading="lazy">
-      </figure>
-      <figure class="masonry__item">
-        <img src="images/fashion-3.jpg" alt="Девушка с лошадью в национальном костюме" loading="lazy">
-      </figure>
-      <figure class="masonry__item">
-        <img src="images/fashion-4.jpg" alt="Девушка в белом платье у юрты" loading="lazy">
-      </figure>
-      <figure class="masonry__item">
-        <img src="images/fashion-5.jpg" alt="Купол юрты со светом изнутри" loading="lazy">
-      </figure>
-    </div>
+  <!--
+    STORY SEQUENCE
+    Each photo is one ".story__item" block. To ADD a photo, copy a whole
+    <figure class="story__item">...</figure> block and change the image path + alt.
+    To REMOVE a photo, delete its block. To place two photos side by side,
+    wrap two ".story__item" blocks in a ".story__pair" div (see example below).
+  -->
+  <section class="story">
 
-    <div class="masonry__col masonry__col--right">
-      <figure class="masonry__item">
-        <img src="images/fashion-6.jpg" alt="Девушка у входа в юрту в этническом наряде" loading="eager">
+    <figure class="story__item">
+      <img src="images/fashion-1.jpg" alt="Девушка на лошади в горах. Съёмка для Tengri Magazine" loading="eager">
+    </figure>
+
+    <div class="story__pair">
+      <figure class="story__item">
+        <img src="images/fashion-6.jpg" alt="Девушка у входа в юрту в этническом наряде" loading="lazy">
       </figure>
-      <figure class="masonry__item">
+      <figure class="story__item">
         <img src="images/fashion-7.jpg" alt="Девушка на качелях на фоне гор" loading="lazy">
       </figure>
-      <figure class="masonry__item">
-        <img src="images/fashion-8.jpg" alt="Девушка сидит рядом с лошадью на поляне" loading="lazy">
-      </figure>
-      <figure class="masonry__item">
-        <img src="images/fashion-9.jpg" alt="Девушка в движении на фоне зелени" loading="lazy">
-      </figure>
     </div>
-  </section>
 
-  <p class="fashion-credit">Съёмка для Tengri Magazine.<br>Алматинская область, Казахстан.</p>
+    <figure class="story__item">
+      <img src="images/fashion-2.jpg" alt="Портрет девушки в меховой накидке" loading="lazy">
+    </figure>
+
+    <figure class="story__item">
+      <img src="images/fashion-3.jpg" alt="Девушка с лошадью в национальном костюме" loading="lazy">
+    </figure>
+
+    <figure class="story__item">
+      <img src="images/fashion-4.jpg" alt="Девушка в белом платье у юрты" loading="lazy">
+    </figure>
+
+    <figure class="story__item">
+      <img src="images/fashion-5.jpg" alt="Купол юрты со светом изнутри" loading="lazy">
+    </figure>
+
+    <figure class="story__item">
+      <img src="images/fashion-9.jpg" alt="Девушка в движении на фоне зелени" loading="lazy">
+    </figure>
+
+    <!-- OTHER WORKS -->
+    <h2 class="story__label section-label">ДРУГИЕ</h2>
+
+    <figure class="story__item">
+      <img src="images/fashion-8.jpg" alt="Девушка сидит рядом с лошадью на поляне" loading="lazy">
+    </figure>
+
+    <figure class="story__item">
+      <img src="images/carousel-1.jpg" alt="Портрет в традиционном казахском костюме" loading="lazy">
+    </figure>
+
+    <figure class="story__item">
+      <img src="images/carousel-2.jpg" alt="Съёмка для модного журнала" loading="lazy">
+    </figure>
+
+    <div class="story__cta">
+      <a href="contacts.html" class="btn-pill">ЗАКАЗАТЬ СЪЕМКУ</a>
+    </div>
+
+  </section>
 
 </main>
 

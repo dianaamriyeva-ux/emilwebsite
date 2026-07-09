@@ -458,6 +458,7 @@ button:focus-visible {
 }
 
 .service-card__media {
+  display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
@@ -722,7 +723,8 @@ button:focus-visible {
 }
 
 /* -----------------------------------------------------------
-   12. Fashion page — static masonry gallery
+   12. Work / story page — magazine-style image sequence
+   Reused by every service page (works.html + template-service-page.html)
    ----------------------------------------------------------- */
 
 .fashion-hero {
@@ -766,73 +768,114 @@ button:focus-visible {
   .fashion-hero__project { text-align: left; }
 }
 
-.masonry {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: start;
-  column-gap: 70px;
-  padding: 0 var(--gutter-desktop) 90px;
+.story {
   max-width: var(--container-max);
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  padding: 0 var(--gutter-desktop) 20px;
 }
 
-@media (max-width: 1100px) {
-  .masonry { column-gap: 36px; padding: 0 var(--gutter-tablet) 70px; }
-}
-
-@media (max-width: 600px) {
-  .masonry { column-gap: 14px; padding: 0 var(--gutter-mobile) 56px; }
-}
-
-.masonry__col {
-  display: flex;
-  flex-direction: column;
-  gap: 90px;
-}
-
-@media (max-width: 600px) {
-  .masonry__col { gap: 40px; }
-}
-
-.masonry__col--right {
-  padding-top: 140px;
-}
-
-@media (max-width: 900px) {
-  .masonry__col--right { padding-top: 90px; }
-}
-
-@media (max-width: 600px) {
-  .masonry__col--right { padding-top: 64px; }
-}
-
-.masonry__item {
+.story__item {
   width: 100%;
   overflow: hidden;
+  margin-bottom: 90px;
 }
 
-.masonry__item img {
+.story__item img {
   width: 100%;
   height: auto;
   display: block;
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.masonry__item:hover img {
-  transform: scale(1.04);
+.story__item:hover img {
+  transform: scale(1.03);
 }
 
-.fashion-credit {
-  padding: 56px var(--gutter-desktop) 90px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--color-text-soft);
-  max-width: var(--container-max);
-  margin-left: auto;
-  margin-right: auto;
+.story__pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 90px;
+}
+
+.story__pair .story__item {
+  margin-bottom: 0;
+}
+
+.story__label {
+  padding: 0;
+}
+
+.story__cta {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 70px;
+}
+
+@media (max-width: 1100px) {
+  .story { padding: 0 0 20px; }
+  .story__item, .story__pair { margin-bottom: 60px; }
+  .story__pair { gap: 16px; }
+  .story__label { padding: 0 var(--gutter-tablet); }
+  .story__cta { padding: 16px var(--gutter-tablet) 60px; }
+}
+
+@media (max-width: 700px) {
+  .story__pair { grid-template-columns: 1fr; gap: 16px; }
 }
 
 @media (max-width: 600px) {
-  .fashion-credit { padding: 40px var(--gutter-mobile) 56px; }
+  .story__item, .story__pair { margin-bottom: 40px; }
+  .story__label { padding: 0 var(--gutter-mobile); }
+  .story__cta { padding: 12px var(--gutter-mobile) 48px; }
+}
+
+/* -----------------------------------------------------------
+   13. Preloader — intro name reveal
+   Sequence: name fades in -> holds -> fades out -> curtain rises.
+   Total runtime ~3.3s, all timing lives in the two animations below.
+   ----------------------------------------------------------- */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  animation: preloader-rise 0.9s cubic-bezier(0.76, 0, 0.24, 1) 2.4s forwards;
+}
+
+.preloader__name {
+  font-size: clamp(20px, 3.2vw, 34px);
+  letter-spacing: 0.4em;
+  font-weight: 400;
+  color: var(--color-text);
+  opacity: 0;
+  animation: preloader-text 2.3s ease forwards;
+}
+
+@keyframes preloader-text {
+  0%   { opacity: 0; letter-spacing: 0.55em; }
+  40%  { opacity: 1; letter-spacing: 0.4em; }
+  75%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes preloader-rise {
+  to { transform: translateY(-100%); }
+}
+
+body.is-loading {
+  overflow: hidden;
+  height: 100vh;
+}
+
+@media (max-width: 600px) {
+  .preloader__name { font-size: 18px; letter-spacing: 0.3em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader { animation: none; display: none; }
+  body.is-loading { overflow: visible; height: auto; }
 }

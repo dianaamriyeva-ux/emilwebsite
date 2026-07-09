@@ -6,6 +6,20 @@
 (function () {
   'use strict';
 
+  // Intro preloader: lock scrolling while the name is showing, then
+  // release it and remove the overlay once the curtain has risen.
+  const preloader = document.querySelector('.preloader');
+  if (preloader) {
+    document.body.classList.add('is-loading');
+
+    preloader.addEventListener('animationend', (event) => {
+      if (event.animationName === 'preloader-rise') {
+        document.body.classList.remove('is-loading');
+        preloader.remove();
+      }
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.querySelector('.nav__toggle');
     const links = document.querySelector('.nav__links');

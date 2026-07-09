@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--
+  ============================================================
+  SERVICE PAGE TEMPLATE
+  ============================================================
+  How to use this file for a new service (e.g. Wedding, Business
+  portrait, Macro, Product, Advertising...):
+
+  1. Duplicate this file and rename it, e.g. "wedding.html".
+  2. Edit the <title> and <meta name="description"> below.
+  3. Edit the two words in the ".hero" section (small title +
+     big project name) further down.
+  4. Add your images inside the ".story" section:
+       - One photo full-width  -> copy a <figure class="story__item">
+         block.
+       - Two photos side by side -> copy the <div class="story__pair">
+         block (it holds exactly 2 story__item figures).
+       - Just delete blocks you don't need, or paste in more —
+         there's no fixed limit, add as many as you like.
+  5. If you want an "other work" section like ДРУГИЕ, keep the
+     <h2 class="story__label section-label"> line and put more
+     story__item figures under it. Delete that block if you don't
+     need a second section.
+  6. Update images/... paths to your new photos (drop the files
+     into the /images folder first).
+  7. Once the page is ready, link to it from a service card on
+     index.html (change its href from "works.html" to your new
+     file name).
+  ============================================================
+-->
+
+<title>Название услуги — Эмиль Амриев</title>
+<meta name="description" content="Краткое описание съёмки для поисковиков.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">EMIL AMRIEV</a>
+    <ul class="nav__links">
+      <li><a href="works.html">РАБОТЫ</a></li>
+      <li><a href="about.html">О СЕБЕ</a></li>
+      <li><a href="prices.html">ЦЕНЫ</a></li>
+      <li><a href="contacts.html">КОНТАКТЫ</a></li>
+    </ul>
+    <button class="nav__toggle" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO — small word top-left, project/service name top-right -->
+  <section class="fashion-hero">
+    <div class="fashion-hero__grid">
+      <h1 class="fashion-hero__title">ИНДИВИДУАЛЬНАЯ СЪЕМКА</h1>
+      <p class="fashion-hero__project">НАЗВАНИЕ<br>ПРОЕКТА</p>
+    </div>
+  </section>
+
+  <!--
+    STORY SEQUENCE — add / remove / reorder freely.
+    Each photo is one ".story__item" block. To place two photos
+    side by side, wrap two ".story__item" blocks in a ".story__pair" div.
+  -->
+  <section class="story">
+
+    <!-- Single full-width photo -->
+    <figure class="story__item">
+      <img src="images/fashion-1.jpg" alt="Описание фото" loading="eager">
+    </figure>
+
+    <!-- Two photos side by side -->
+    <div class="story__pair">
+      <figure class="story__item">
+        <img src="images/fashion-2.jpg" alt="Описание фото" loading="lazy">
+      </figure>
+      <figure class="story__item">
+        <img src="images/fashion-3.jpg" alt="Описание фото" loading="lazy">
+      </figure>
+    </div>
+
+    <!-- Another single full-width photo — copy this block for each extra photo -->
+    <figure class="story__item">
+      <img src="images/fashion-4.jpg" alt="Описание фото" loading="lazy">
+    </figure>
+
+    <!--
+      OTHER WORKS SECTION (optional).
+      Delete the <h2> + figures below if this page doesn't need
+      a second "other photos" group.
+    -->
+    <h2 class="story__label section-label">ДРУГИЕ</h2>
+
+    <figure class="story__item">
+      <img src="images/fashion-9.jpg" alt="Описание фото" loading="lazy">
+    </figure>
+
+    <div class="story__cta">
+      <a href="contacts.html" class="btn-pill">ЗАКАЗАТЬ СЪЕМКУ</a>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer__social">
+    <a href="https://wa.me/77071689189" aria-label="WhatsApp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21l1.65-4.95A8.5 8.5 0 1 1 8.05 19.4L3 21z"/><path d="M8.5 9.5c0-.5.5-1.5 1-1.5s1 1 1.5 2 1 1.5 2 2 1.5.5 2 1-.5 1.5-1 2-3-.5-4.5-2-2.5-3-2-3.5z"/></svg>
+    </a>
+    <a href="https://t.me/emilamriev" aria-label="Telegram" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 4L3 11l6 2.5M21 4L17 20l-8-6.5M21 4l-12 9.5"/></svg>
+    </a>
+    <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </div>
+
+  <div class="footer__contact">
+    <p>+7 (707) 168-91-89</p>
+    <p><a href="mailto:emilamriev@gmail.com">emilamriev@gmail.com</a></p>
+    <p><a href="mailto:emil_amriev@mail.ru">emil_amriev@mail.ru</a></p>
+  </div>
+
+  <div class="wrap" style="padding:0;">
+    <p class="footer__copy">© 2026 Emil Amriev. All rights reserved</p>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
