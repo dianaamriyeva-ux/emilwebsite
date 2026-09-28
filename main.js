@@ -53,3 +53,53 @@
     });
   });
 })();
+
+
+// Contact modal: opens on any [data-modal-open="contact-modal"] trigger,
+// closes on the × button, overlay click, or Escape key.
+(function () {
+  'use strict';
+
+  const modal = document.getElementById('contact-modal');
+  if (!modal) return;
+
+  const openTriggers = document.querySelectorAll('[data-modal-open="contact-modal"]');
+  const closeTriggers = modal.querySelectorAll('[data-modal-close]');
+  let lastFocused = null;
+
+  function openModal(e) {
+    e.preventDefault();
+    lastFocused = document.activeElement;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    modal.querySelector('.modal__close').focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    if (lastFocused) lastFocused.focus();
+  }
+
+  openTriggers.forEach((btn) => btn.addEventListener('click', openModal));
+  closeTriggers.forEach((el) => el.addEventListener('click', closeModal));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+})();
+
+// Back to top: smooth-scrolls to the top of the page on click.
+(function () {
+  'use strict';
+
+  const backToTop = document.getElementById('back-to-top');
+  if (!backToTop) return;
+
+  backToTop.addEventListener('click', () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+})();
